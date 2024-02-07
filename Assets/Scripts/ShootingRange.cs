@@ -13,7 +13,7 @@ public class ShootingRange : MonoBehaviour
     private float bowlMaxY = 1.75f;
     private float zPos;
     private IEnumerator bowlSpawning;
-    //private IEnumerator targetSpawning;
+    private IEnumerator targetSpawning;
 
     // Start is called before the first frame update
     void Start()
