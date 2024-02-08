@@ -12,6 +12,9 @@ public class ShootingRange : MonoBehaviour
     private float bowlMinY = 0.1f;
     private float bowlMaxY = 1.75f;
     private float zPos;
+    private float firstTargetY = 3.35f;
+    private float secondTargetY = 0.5f;
+    private float targetX = 3.75f;
     private IEnumerator bowlSpawning;
     private IEnumerator targetSpawning;
 
@@ -20,9 +23,9 @@ public class ShootingRange : MonoBehaviour
     {
         zPos = transform.position.z + 0.3f;
         bowlSpawning = SpawnBowls(1.0f);
-        //targetSpawning = SpawnTargets(1.0f);
+        targetSpawning = SpawnTargets(1.0f);
         StartCoroutine(bowlSpawning);
-        
+        StartCoroutine(targetSpawning);
     }
 
     // Update is called once per frame
@@ -41,15 +44,15 @@ public class ShootingRange : MonoBehaviour
         }
     }
 
-    /*private IEnumerator SpawnTargets(float spawnRate)
+    //A co-routine to spawn targets for the simulation while it is running
+    private IEnumerator SpawnTargets(float spawnRate)
     {
         while (true)
         {
             yield return new WaitForSeconds(spawnRate);
             SpawnTarget();
-            break;
         }
-    }*/
+    }
 
     //Spawn a bowl with appropriate force and torque
     private void SpawnBowl()
@@ -94,6 +97,39 @@ public class ShootingRange : MonoBehaviour
 
     }
 
+    //Spawn a Shooting Target
+    private void SpawnTarget()
+    {
+        // Positive X position (right side of the shooting range)
+        if (coinFlip() > 0)
+        {
+            // Positive Y position (top of the shooting range)
+            if (coinFlip() > 0)
+            {
+                Instantiate(target, new Vector3(targetX, firstTargetY, zPos - .25f), Quaternion.Euler(-90, 0, -180));
+            }
+            // Negative Y position (bottom of the shooting range)
+            else
+            {
+                Instantiate(target, new Vector3(targetX, secondTargetY, zPos - .25f), Quaternion.Euler(90, 0, 0));
+            }
+        }
+        // Negative X position (left side of the shooting range)
+        else
+        {
+            // Positive Y position (top of the shooting range)
+            if (coinFlip() > 0)
+            {
+                Instantiate(target, new Vector3(-targetX, firstTargetY, zPos - .25f), Quaternion.Euler(-90, 0, -180));
+            }
+            // Negative Y position (bottom of the shooting range)
+            else
+            {
+                Instantiate(target, new Vector3(-targetX, secondTargetY, zPos - .25f), Quaternion.Euler(90, 0, 0));
+            }
+        }
+    }
+
     //Generate a random torque value
     private Vector3 GenerateRandomTorque()
     {
@@ -111,9 +147,22 @@ public class ShootingRange : MonoBehaviour
         return new Vector3 (x * xMultiplier, y * yMultiplier, 0);
     }
 
+    //Just a 50/50 coin flip method to chose between 1 option or the other
+    private int coinFlip()
+    {
+        int[] choices = {-1, 1};
+        int howManyChoices = choices.Length;
+        int myRandomIndex = Random.Range(0, howManyChoices);
+        return choices[myRandomIndex];
+    }
+
     //Destory objects that fall out of world
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag.CompareTo("Target") == 0)
+        {
+            Debug.Log("Target Detected");
+        }
         Destroy(other.gameObject);
     }
 }
