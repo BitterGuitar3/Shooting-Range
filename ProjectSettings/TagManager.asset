@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Magazine
+  - Range
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - Grab Interactable
   - Player
-  - 
+  - Targets
   - 
   - 
   - 

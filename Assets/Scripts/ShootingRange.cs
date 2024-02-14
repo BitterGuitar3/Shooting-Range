@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ShootingRange : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     [SerializeField] private GameObject bowl;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     private float minX = -3.75f;
     private float maxX = 3.75f;
@@ -15,6 +17,7 @@ public class ShootingRange : MonoBehaviour
     private float firstTargetY = 3.35f;
     private float secondTargetY = 0.5f;
     private float targetX = 3.75f;
+    private int score = 0;
     private IEnumerator bowlSpawning;
     private IEnumerator targetSpawning;
 
@@ -25,7 +28,7 @@ public class ShootingRange : MonoBehaviour
         bowlSpawning = SpawnBowls(1.0f);
         targetSpawning = SpawnTargets(1.0f);
         StartCoroutine(bowlSpawning);
-        StartCoroutine(targetSpawning);
+        //StartCoroutine(targetSpawning);
     }
 
     // Update is called once per frame
@@ -154,6 +157,12 @@ public class ShootingRange : MonoBehaviour
         int howManyChoices = choices.Length;
         int myRandomIndex = Random.Range(0, howManyChoices);
         return choices[myRandomIndex];
+    }
+
+    public void IncrementScore(int hitScore)
+    {
+        score += hitScore;
+        scoreText.text = "Score: " + score;
     }
 
     //Destory objects that fall out of world

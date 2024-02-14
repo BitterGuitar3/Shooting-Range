@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 [AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
 public class SimpleShoot : MonoBehaviour
@@ -20,6 +21,9 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
+    [Header("Ammo Tracking")]
+    [SerializeField] private XRSocketInteractor magSocket;
+
     public AudioSource source;
     public AudioClip fireSound;
 
@@ -34,7 +38,10 @@ public class SimpleShoot : MonoBehaviour
 
     public void PullTheTrigger()
     {
-        gunAnimator.SetTrigger("Fire");
+        //if (magSocket.hasSelection)
+        //{
+            gunAnimator.SetTrigger("Fire");
+        //}
     }
 
 

@@ -33,8 +33,19 @@ public class Target : MonoBehaviour
     {
         if(collision.gameObject.tag.CompareTo("Bullet") == 0)
         {
-            animator.SetBool("isShot", true);
+            if(this.transform.position.y > 1.5f)
+            {
+                animator.SetBool("TopShot", true);
+            }
+            else
+            {
+                animator.SetBool("BottomShot", true);
+            }
+
+            GameObject.FindGameObjectWithTag("Range").GetComponent<ShootingRange>().IncrementScore(2);
+
             Destroy(collision.gameObject);
+            Destroy(this.gameObject, 0.5f);
         }
     }
 }
