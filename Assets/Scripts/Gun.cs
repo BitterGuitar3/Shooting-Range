@@ -7,6 +7,13 @@ public class Gun : XRGrabInteractable
 {
     [SerializeField]
     private GameObject handgunModel;
+    public bool bulletInChamber = false;
+
+    [Header("Ammo Tracking")]
+    [SerializeField] private XRSocketInteractorTag magSocket;
+    public AudioSource source;
+    public AudioClip fireSound;
+    public AudioClip emptyMag;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +30,17 @@ public class Gun : XRGrabInteractable
     protected override void OnActivated(ActivateEventArgs args)
     {
         base.OnActivated(args);
-        handgunModel.GetComponent<SimpleShoot>().PullTheTrigger();
+        if (bulletInChamber)
+        {
+            var magazine = magSocket.getMag();
+            source.PlayOneShot(fireSound);
+            handgunModel.GetComponent<SimpleShoot>().PullTheTrigger();
+            bulletInChamber = false;
+            magazine.gameObject.GetComponent<Magazine>().rackBullet();
+        }
+        else
+        {
+            source.PlayOneShot(emptyMag);
+        }
     }
 }

@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 371156823}
   - component: {fileID: 371156824}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Mag Socket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e858b39c10d7748ad35b3d52b0aeb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1391826286}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -525,7 +525,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -555,6 +567,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: Magazine
+  gun: {fileID: 8572362473041252626}
 --- !u!1 &429774962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7201939471185612402, guid: c22b90d0b22404d4da70ddcf608bdd54,
@@ -777,7 +790,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474854272}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &583714130
+--- !u!1001 &514036866
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -785,55 +798,76 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1501084758933746, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 5481410967238547396, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.014647901
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481410967238547396, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.00016080309
+      objectReference: {fileID: 0}
+    - target: {fileID: 8107577268597085419, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_Name
-      value: Military target
+      value: M1911 Magazine_Black_Full
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02434286
+      value: 0.2020626
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2499995
+      value: 0.8357
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.2564785
+      value: 0.7276536
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000021010637
+      value: 0.70710784
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000020489097
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071057
+      value: -0.70710576
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.70710796
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4720941400279188, guid: 9437be881ad682348bd31aa228922027, type: 3}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108783290139396301, guid: 3891d67bd4812e34db02888d6b7ae428,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9437be881ad682348bd31aa228922027, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3891d67bd4812e34db02888d6b7ae428, type: 3}
 --- !u!1 &744306012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1080,7 @@ Transform:
   - {fileID: 219478038}
   - {fileID: 1878192764}
   - {fileID: 828561226}
+  - {fileID: 1490453912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &961838077
@@ -1062,6 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1501084758933746, guid: 9437be881ad682348bd31aa228922027, type: 3}
   bowl: {fileID: 100000, guid: 3e518fa43f588074da4fe65a0766231d, type: 3}
+  scoreText: {fileID: 1402515366}
 --- !u!65 &961838078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1932,7 +1968,7 @@ GameObject:
   - component: {fileID: 1402515367}
   - component: {fileID: 1402515366}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2131,9 +2167,6 @@ MonoBehaviour:
   destroyTimer: 2
   shotPower: 15039
   ejectPower: 250
-  magSocket: {fileID: 0}
-  source: {fileID: 2075208466}
-  fireSound: {fileID: 8300000, guid: a9d66956f002b364d853abd8c4e3ae35, type: 3}
 --- !u!1 &1490453908
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,7 +2180,7 @@ GameObject:
   - component: {fileID: 1490453910}
   - component: {fileID: 1490453909}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Score Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2223,13 +2256,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490453908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.75}
   m_LocalScale: {x: 0.010599891, y: 0.010599891, z: 0.010599891}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1402515365}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 961838076}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2391,6 +2424,11 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   handgunModel: {fileID: 921090567509909751}
+  bulletInChamber: 0
+  magSocket: {fileID: 371156824}
+  source: {fileID: 2075208466}
+  fireSound: {fileID: 8300000, guid: a9d66956f002b364d853abd8c4e3ae35, type: 3}
+  emptyMag: {fileID: 8300000, guid: 9b4372ee79b040344a04eb33f5c0736c, type: 3}
 --- !u!54 &1635069615
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3930,6 +3968,5 @@ SceneRoots:
   - {fileID: 666551595184032216}
   - {fileID: 961838076}
   - {fileID: 1029016973}
-  - {fileID: 583714130}
-  - {fileID: 1490453912}
   - {fileID: 744306015}
+  - {fileID: 514036866}

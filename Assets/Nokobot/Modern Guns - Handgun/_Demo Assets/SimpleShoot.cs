@@ -21,12 +21,6 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
-    [Header("Ammo Tracking")]
-    [SerializeField] private XRSocketInteractor magSocket;
-
-    public AudioSource source;
-    public AudioClip fireSound;
-
     void Start()
     {
         if (barrelLocation == null)
@@ -38,10 +32,7 @@ public class SimpleShoot : MonoBehaviour
 
     public void PullTheTrigger()
     {
-        //if (magSocket.hasSelection)
-        //{
             gunAnimator.SetTrigger("Fire");
-        //}
     }
 
 
@@ -50,8 +41,6 @@ public class SimpleShoot : MonoBehaviour
     {
         if (muzzleFlashPrefab)
         {
-            source.PlayOneShot(fireSound);
-
             //Create the muzzle flash
             GameObject tempFlash;
             tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
